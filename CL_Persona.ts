@@ -1,20 +1,25 @@
-export interface Persona {
-    nombre: string;
-    edad: number;
-}
+export default class cl_persona {
+    private _nombre: string;
+    private _edad: number;
 
-export class CL_Persona {
-    private personas: Persona[];
-
-    constructor(personas: Persona[]) {
-        this.personas = personas;
+    constructor(nombre: string, edad: number) {
+    this._nombre = nombre;
+    this._edad = edad;
     }
 
-    public filtrarPersonas(): Persona[] {
-        return this.personas.filter(p => p.edad < 18);
+    set nombre(n: string) {
+    this._nombre = n;
     }
 
-    public contarPersonas(): number {
-        return this.filtrarPersonas().length;
+    get nombre(): string {
+    return this._nombre;
+    }
+
+    set edad(e: number) {
+    this._edad = +e;
+    }
+
+    get edad(): number {
+    return this._edad;
     }
 }

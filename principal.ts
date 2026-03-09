@@ -1,23 +1,33 @@
-import { Persona } from './CL_Persona';
-import { CL_Personas } from './CL_Personas';
-import { CL_Persona } from './CL_Persona';
+import cl_persona from "./cl_persona";
+import cl_Personas from "./cl_Personas";
 
-// Datos de entrada proporcionados
-const datosPersonas: Persona[] = [
-    { nombre: "Luis", edad: 15 }, { nombre: "Ana", edad: 19 },
-    { nombre: "José", edad: 21 }, { nombre: "Carmen", edad: 17 },
-    { nombre: "Rosa", edad: 18 }, { nombre: "José", edad: 22 },
-    { nombre: "María", edad: 17 }, { nombre: "Luz", edad: 19 },
-    { nombre: "Rafael", edad: 23 }, { nombre: "Liz", edad: 15 },
-    { nombre: "Marcos", edad: 20 }, { nombre: "Leo", edad: 16 }
-];
+// Instanciar la clase mayor
+let personas = new cl_Personas();
 
-// Instanciamos la clase Mayor para obtener el reporte solicitado
-const gestionMayor = new CL_Personas(datosPersonas);
+// Datos de prueba según la imagen
+let p1 = new cl_persona("Luis", 15);
+let p2 = new cl_persona("Ana", 19);
+let p3 = new cl_persona("Jose", 21);
+let p4 = new cl_persona("Carmen", 17);
+let p5 = new cl_persona("Rosa", 18);
+let p6 = new cl_persona("Jose", 22);
+let p7 = new cl_persona("Maria", 17);
+let p8 = new cl_persona("Luz", 19);
+let p9 = new cl_persona("Rafael", 23);
 
-console.log("--- REPORTE DE MAYORÍA DE EDAD ---");
-gestionMayor.imprimirReporte();
+// Procesar cada objeto
+personas.procesarPersona(p1);
+personas.procesarPersona(p2);
+personas.procesarPersona(p3);
+personas.procesarPersona(p4);
+personas.procesarPersona(p5);
+personas.procesarPersona(p6);
+personas.procesarPersona(p7);
+personas.procesarPersona(p8);
+personas.procesarPersona(p9);
 
-// Opcional: Uso de la clase Menor
-const gestionMenor = new CL_Persona(datosPersonas);
-console.log(`\n(Dato extra: Hay ${gestionMenor.contarPersonas()} menores de edad en la lista)`);
+// Salida de resultados
+let salida = document.getElementById("salida"); // Opcional si usas HTML
+console.log(`Cantidad de personas: ${personas.cantidadPersonas()}`);
+console.log(`Cantidad de personas mayores de edad: ${personas.cantidadMayores()}`);
+console.log(`Porcentaje de personas mayores de edad: ${personas.porcMayores().toFixed(2)}%`);

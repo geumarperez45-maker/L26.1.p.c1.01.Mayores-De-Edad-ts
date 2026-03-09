@@ -1,25 +1,34 @@
-import { Persona } from './CL_Persona';
+import cl_persona from "./cl_persona";
 
-export class CL_Personas {
-    private personas: Persona[];
+export default class cl_Personas {
+    private cntPersonas: number;
+    private cntMayores: number;
 
-    constructor(personas: Persona[]) {
-        this.personas = personas;
+    constructor() {
+    this.cntPersonas = 0;
+    this.cntMayores = 0;
     }
 
-    public contarPersonas(): number {
-        return this.personas.filter(p => p.edad >= 18).length;
+    procesarPersona(p: cl_persona): void {
+    // Incrementar cantidad total de personas
+    this.cntPersonas++;
+
+    // Verificar si es mayor de edad (18 años o más)
+    if (p.edad >= 18) {
+        this.cntMayores++;
+    }
     }
 
-    public calcularPorcentaje(): string {
-        if (this.personas.length === 0) return "0.00%";
-        const porcentaje = (this.contarPersonas() / this.personas.length) * 100;
-        return porcentaje.toFixed(2) + "%";
+    cantidadPersonas(): number {
+    return this.cntPersonas;
     }
 
-    public imprimirReporte(): void {
-        console.log(`Cantidad de personas: ${this.personas.length}`);
-        console.log(`Cantidad de personas mayor de edad: ${this.contarPersonas()}`);
-        console.log(`Porcentaje de personas mayor de edad: ${this.calcularPorcentaje()}`);
+    cantidadMayores(): number {
+    return this.cntMayores;
+    }
+
+    porcMayores(): number {
+    if (this.cntPersonas === 0) return 0;
+    return (this.cntMayores / this.cntPersonas) * 100;
     }
 }
