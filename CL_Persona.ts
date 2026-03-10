@@ -1,25 +1,25 @@
-export default class cl_persona {
+export default class CL_persona {
     private _nombre: string;
     private _edad: number;
 
-    constructor(nombre: string, edad: number) {
-    this._nombre = nombre;
-    this._edad = edad;
-    }
-
-    set nombre(n: string) {
-    this._nombre = n;
-    }
-
-    get nombre(): string {
-    return this._nombre;
+    constructor(n: string, e: number) {
+        this._nombre = n;
+        this._edad = e;
     }
 
     set edad(e: number) {
-    this._edad = +e;
+        this._edad = e;
     }
 
     get edad(): number {
-    return this._edad;
+        return this._edad;
+    }
+
+    set nombre(n: string) {
+        this._nombre = n;
+    }
+
+    get nombre(): string {
+        return this._nombre;
     }
 }

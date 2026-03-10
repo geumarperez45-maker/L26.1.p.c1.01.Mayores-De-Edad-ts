@@ -1,34 +1,37 @@
-import cl_persona from "./cl_persona";
+import CL_persona from "./CL_persona.js";
 
-export default class cl_Personas {
-    private cntPersonas: number;
-    private cntMayores: number;
+export default class CL_Personas {
+    private _cntPersonas: number;
+    private _cntMayores: number;
 
     constructor() {
-    this.cntPersonas = 0;
-    this.cntMayores = 0;
+        // (1) Inicialización
+        this._cntPersonas = 0;
+        this._cntMayores = 0;
     }
 
-    procesarPersona(p: cl_persona): void {
-    // Incrementar cantidad total de personas
-    this.cntPersonas++;
+    // (2) Procesar persona
+    procesarPersona(p: CL_persona) {
+        // Incrementar cantidad total
+        this._cntPersonas++;
 
-    // Verificar si es mayor de edad (18 años o más)
-    if (p.edad >= 18) {
-        this.cntMayores++;
-    }
-    }
-
-    cantidadPersonas(): number {
-    return this.cntPersonas;
+        // Si la edad es >= 18, incrementar mayores
+        if (p.edad >= 18) {
+            this._cntMayores++;
+        }
     }
 
-    cantidadMayores(): number {
-    return this.cntMayores;
+    cantPersonas(): number {
+        return this._cntPersonas;
     }
 
+    cntMayores(): number {
+        return this._cntMayores;
+    }
+
+    // (3) Cálculo de porcentaje
     porcMayores(): number {
-    if (this.cntPersonas === 0) return 0;
-    return (this.cntMayores / this.cntPersonas) * 100;
+        if (this._cntPersonas === 0) return 0;
+        return (this._cntMayores / this._cntPersonas) * 100;
     }
 }
