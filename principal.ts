@@ -4,7 +4,7 @@ import CL_Personas from "./CL_Personas.js";
 // Instanciar la clase mayor
 let personas = new CL_Personas();
 
-// Datos de prueba según tu lista
+// Datos de prueba
 let p1 = new CL_persona("Luis", 15);
 let p2 = new CL_persona("Ana", 19);
 let p3 = new CL_persona("Jose", 21);
