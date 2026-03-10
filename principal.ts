@@ -24,7 +24,7 @@ personas.procesarPersona(p5);
 personas.procesarPersona(p6);
 personas.procesarPersona(p7);
 personas.procesarPersona(p8);
-personas.emphasize(p9);
+personas.procesarPersona(p9);
 
 // Salida
 let salida = document.getElementById("salida");
